@@ -1,14 +1,15 @@
 ﻿using Entities.Concrete;
-using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace DataAccess.Abstract
+
+namespace Business.Abstract
 {
-    public interface ICarDal:IEntityRepository<Car>
+    public interface IBrandService
     {
-        List<CarDetailDto> GetCarDetailDto();
+        List<Brand> GetAll();
+        void AddBrand(Brand brand);
     }
 }
