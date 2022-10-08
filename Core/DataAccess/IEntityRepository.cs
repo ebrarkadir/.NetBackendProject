@@ -10,7 +10,7 @@ namespace DataAccess.Abstract
 {
     public interface IEntityRepository<T> where T : class, IEntity, new()
     {
-        List<T> GetAll(Expression<Func<T, bool>> filter = null);
+        List<T> GetAll(Expression<Func<T, bool>> filter = null);//ürün filtrelemesi için (null olduğundan filtre vermek zorunlu değil)
         T Get(Expression<Func<T, bool>> filter);
         void Add(T entity);
         void Update(T entity);

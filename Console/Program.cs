@@ -8,63 +8,73 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console
+namespace ConsoleUI
 {
     public class Program
     {
         static void Main(string[] args)
         {
+
+            //GetAllColors();
+            //GetAllCars();
+            //GetAllBrands();
+            //GetCarDetails();
+
+
+        }
+
+        private static void GetCarDetails()
+        {
             CarManager carManager = new CarManager(new EfCarDal());
-            ColorManager colorManager = new ColorManager(new EfColorDal());
-            BrandManager brandManager = new BrandManager(new EfBrandDal());
-
-            //GetAllColors(colorManager);
-            //GetAllCars(carManager);
-            //GetAllBrands(brandManager);
-
-            carManager.Add(new Car { Id = 5, BrandId = 5, Description = "toyaota", ColorId = 1, DailyPrice = 110, ModelYear = 2008 });//Şartlara uymuyor
-
-            //GetCarsByBrandID
-                foreach (var car in carManager.GetCarsByBrandId(5))
+            var result = carManager.GetCarDetails();
+            if (result.Success)
             {
-                System.Console.WriteLine("{0} --- {1}", car.Description, car.BrandId);
+                foreach (var car in result.Data)
+                {
+                    Console.WriteLine(car.CarName);
+                }
+
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
 
-            //GetCarsByColorID
-            //foreach (var car in carManager.GetCarsByColorId(1))
-            //{
-            //    System.Console.WriteLine("{0} --- {1}", car.Description, car.ColorId);
-            //}
+        private static void GetAllBrands()
+        {
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            var result = brandManager.GetAll();
 
-        //}
+            if (result.Success)
+            {
+                foreach (var brand in result.Data)
+                {
+                    Console.WriteLine(brand.Name);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
 
-        //////getallcolor
-        //private static void GetAllColors(ColorManager colorManager)
-        //{
-        //    foreach (var color in colorManager.GetAll())
-        //    {
-        //        System.Console.WriteLine(color.ColorName);
-        //    }
-        //}
+        private static void GetAllColors()
+        {
+            ColorManager colorManager = new ColorManager(new EfColorDal());
+            foreach (var color in colorManager.GetAll().Data)
+            {
+                Console.WriteLine(color.Name);
+            }
+        }
 
-        ////getallcars
-        //private static void GetAllCars(CarManager carManager)
-        //{
-        //    foreach (var car in carManager.GetAll())
-        //    {
-        //        System.Console.WriteLine(car.Description);
-        //    }
-        //}
-
-        ////getallBrands
-        //private static void GetAllBrands(BrandManager brandManager)
-        //{
-        //    foreach (var brand in brandManager.GetAll())
-        //    {
-        //        System.Console.WriteLine(brand.BrandName);
-        //    }
-
-    }
-
+        private static void GetAllCars()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            foreach (var car in carManager.GetAll().Data)
+            {
+                Console.WriteLine(car.Description);
+            }
+        }
     }
 }

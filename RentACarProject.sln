@@ -15,9 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Busine
 		{25B41C4A-3159-4E55-93DD-AC76C3D22B81} = {25B41C4A-3159-4E55-93DD-AC76C3D22B81}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console", "Console\Console.csproj", "{4EC36AA1-A8B7-42F4-A594-CAE546148772}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUI", "Console\ConsoleUI.csproj", "{4EC36AA1-A8B7-42F4-A594-CAE546148772}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{25B41C4A-3159-4E55-93DD-AC76C3D22B81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{25B41C4A-3159-4E55-93DD-AC76C3D22B81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
