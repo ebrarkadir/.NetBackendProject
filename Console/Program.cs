@@ -12,18 +12,19 @@ namespace ConsoleUI
 {
     public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            
 
             //GetAllColors();
             //GetAllCars();
             //GetAllBrands();
-            //GetCarDetails();
+            GetCarDetails();
 
 
         }
 
-        private static void GetCarDetails()
+        public static void GetCarDetails()
         {
             CarManager carManager = new CarManager(new EfCarDal());
             var result = carManager.GetCarDetails();
