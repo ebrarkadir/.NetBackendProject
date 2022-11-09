@@ -31,10 +31,5 @@ namespace DataAccess.Concrete.EntityFramework
                 return result.ToList();
             }
         }
-
-        public List<CarDetailDto> GetCarDetails()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
