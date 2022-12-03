@@ -50,7 +50,7 @@ namespace DataAccess.Concrete.InMemory
             _cars.Remove(car);
         }
 
-        public Car Get(Expression<Func<Car, bool>> filter)
+        public Car GetById(Expression<Func<Car, bool>> filter)
         {
             throw new NotImplementedException();
         }

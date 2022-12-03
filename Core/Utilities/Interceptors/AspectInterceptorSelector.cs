@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Interceptors
 {
-    public class AspectInterceptorSelector : IInterceptorSelector
+    public abstract partial class MethodInterception
     {
-        public IInterceptor[] SelectInterceptors(Type type, MethodInfo method, IInterceptor[] interceptors)
+        public class AspectInterceptorSelector : IInterceptorSelector
         {
-            var classAttributes = type.GetCustomAttributes<MethodInterceptionBaseAttribute>
-                (true).ToList();
-            var methodAttributes = type.GetMethod(method.Name)
-                .GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
-            classAttributes.AddRange(methodAttributes);
-            // Loglama altyapısı hazırlandıktan sonra default olarak sisteme loglama eklemek için kullanılır
-            // Programcı loglama eklesin ya da eklemesin bütün metotları loglar.
-            //classAttributes.Add(new ExceptionLogAspect(typeof(FileLogger)));
+            public IInterceptor[] SelectInterceptors(Type type, MethodInfo method, IInterceptor[] interceptors)
+            {
+                var classAttributes = type.GetCustomAttributes<MethodInterceptionBaseAttribute>
+                    (true).ToList();
+                var methodAttributes = type.GetMethod(method.Name)
+                    .GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
+                classAttributes.AddRange(methodAttributes);
 
-            return classAttributes.OrderBy(x => x.Priority).ToArray();
+                return classAttributes.OrderBy(x => x.Priority).ToArray();
+            }
         }
     }
 }

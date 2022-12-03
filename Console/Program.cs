@@ -19,7 +19,29 @@ namespace ConsoleUI
             //GetAllColors();
             //GetAllCars();
             //GetAllBrands();
-            GetCarDetails();
+            //GetCarDetails();
+            List<Car> _cars;
+            _cars = new List<Car>
+            {
+                new Car
+                {
+                    Id = 1,
+                    BrandId = 1,
+                    ColorId = 2,
+                    DailyPrice = 2000,
+                    Description = "Volvo",
+                    ModelYear = 2020
+                },
+                new Car
+                {
+                    Id = 2,
+                    BrandId = 3,
+                    ColorId = 1,
+                    DailyPrice = 3000,
+                    Description = "Mercedes",
+                    ModelYear = 2022
+                }
+            };
 
 
         }

@@ -12,7 +12,7 @@ namespace Core.Utilities.Results
         {
 
         }
-        public SuccessResult(bool success) : base(true)
+        public SuccessResult() : base(true)
         {
 
         }

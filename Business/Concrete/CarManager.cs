@@ -22,6 +22,7 @@ namespace Business.Concrete
         {
             _carDal = carDal; 
         }
+
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
@@ -52,7 +53,7 @@ namespace Business.Concrete
 
         public IDataResult<Car> GetById(int Id)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == Id),true);
+            return new SuccessDataResult<Car>(_carDal.GetById(c => c.Id == Id),true);
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()

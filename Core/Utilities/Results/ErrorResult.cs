@@ -12,7 +12,7 @@ namespace Core.Utilities.Results
         {
 
         }
-        public ErrorResult(bool error):base(false)
+        public ErrorResult():base(false)
         {
 
         }
